@@ -1,3 +1,38 @@
+const clientes = [
+    {id: 1, saludo: "Abraham", prestamo: 1000},
+    {id: 2, saludo: "Juan", prestamo: 8000}        
+];
+
+class agregarClientes {
+
+    constructor(cliente){
+        this.items = cliente;
+    }
+
+    NuevosClientes(saludoA, prestamoA){
+        const persona = {id: this.generarId(), saludo:saludoA, prestamo: prestamoA}
+        this.items.push(persona);
+    }
+    generarId(){
+        return this.items.length +1;
+    }
+
+    BuscarCliente(){
+        return this.items.find(item => item.id == id);
+    }
+
+    TotalClientes(){
+        return this.items.length;
+    }
+
+    verCliente(){
+        return this.items;
+    }
+}
+
+const cartera = new agregarClientes(clientes)
+console.log(cartera.verCliente());
+
 let saludo = prompt("Bienvenido al banco LUSA, el banco que te ofrece prestamos con los intereses más bajos. ¿Cual es su nombre?");
 let prestamo = parseInt(prompt(`Hola ${saludo}, ingrese el monto que desea solicitar. (Min. s/1000)` ));
 
@@ -47,8 +82,9 @@ function cuotas(){
 
 cuotas();
 
+cartera.NuevosClientes(saludo, prestamo);
 
-
+console.log(cartera.TotalClientes());
 
 
 
